@@ -1,0 +1,11 @@
+<div class="note">
+    {{mynote.id}}. {{mynote.name}}
+    <br>
+    {{mynote.text}}
+    <br>
+    {{mynote.date | date:"dd.MM.yyyy"}}
+    {{mynote.date | date:"HH:mm:ss"}}
+    <br>
+    <button class="btn btn-danger" (click)="onDeleteNote(mynote.id)">Удалить</button>
+    <button class="btn btn-primary mx-2" (click)="onEditMyNote(mynote.id)">Редактировать</button>
+</div>
