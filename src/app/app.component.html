@@ -1,4 +1,22 @@
-<div class="container">
+<ng-container *ngIf="flag; else elseTemplate">
+  <div class="container">
+    <div class="row mt-4">
+      <div class="col-12">
+        <app-myform (addNewNote) = "AddNote($event)" [editNoteInForm] = "note" [edit] = "edit"></app-myform>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-sm-12 col-lg-6" *ngFor="let item of notes">
+        <app-mynote [mynote] = "item" (deleteNote) = "onDeleteNote($event)" (editNote) = "onEditNote($event)"></app-mynote>
+      </div>
+    </div>
+  </div>
+</ng-container>
+<ng-template #elseTemplate>
+  <div>Ошибка</div>
+</ng-template>
+
+<!-- <div class="container">
   <div class="row mt-4">
     <div class="col-12">
       <app-myform (addNewNote) = "AddNote($event)" [editNoteInForm] = "note" [edit] = "edit"></app-myform>
@@ -9,4 +27,4 @@
       <app-mynote [mynote] = "item" (deleteNote) = "onDeleteNote($event)" (editNote) = "onEditNote($event)"></app-mynote>
     </div>
   </div>
-</div>
+</div> -->
